@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel='stylesheet' type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body background="{% static 'images/destinations.jpg' %}">
+    <form action="register" method="POST">
+        {% csrf_token %}
+        <h1>Fill out form to be a registerd traveller:</h1>
+        first name :<input type="text" name="first_name" placeholder="First Name"><br>
+        Last name :<input type="text" name="last_name" placeholder="Last Name"><br>
+        Username :<input type="text" name="username" placeholder="Username"><br>
+        Email :<input type="email" name="email" placeholder="Email"><br>
+        Password :<input type="password" name="password1" placeholder="Password"><br>
+        Confirm Password :<input type="password" name="password2" placeholder="Confirm Password"><br><br>
+        <input type="submit">
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <h3>{{messages}}</h3>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
